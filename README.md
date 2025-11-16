@@ -10,3 +10,15 @@ This project demonstrates how to perform real-time face detection using Python. 
 
 ## 📦 Requirements
 [-] OpenCV
+
+
+# Installation
+
+## Quick Start
+
+You can install FaceDetection environment by using the following command:
+
+```shell
+$ git clone https://github.com/utkuakinci/FaceDetection.git
+$ pip install -e face-detection
+```
