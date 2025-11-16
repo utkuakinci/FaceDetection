@@ -9,4 +9,4 @@ This project demonstrates how to perform real-time face detection using Python. 
 - Both approaches work with a webcam and draw detection boxes on faces in real time.
 
 ## 📦 Requirements
-[] OpenCV
+[x] OpenCV
