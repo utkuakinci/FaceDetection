@@ -24,11 +24,8 @@ def main():
 
         # Yüzlerin etrafına dikdörtgen çiz
         for (x, y, w, h) in faces:
-            # Crop the detected face ROI (Region of Interest)
-            face_roi = frame[y:y+h, x:x+w]
-            
-            # Get emotion prediction
-            emotion, score = analyzer.analyze_face(face_roi)
+            # Get emotion prediction for the detected face
+            emotion, score = analyzer.analyze_face(frame, (x, y, w, h))
 
             # Draw bounding box and label
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
