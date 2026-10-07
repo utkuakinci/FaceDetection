@@ -1,4 +1,4 @@
-from fer import FER
+from fer.fer import FER
 
 class EmotionAnalyzer:
     def __init__(self, mtcnn: bool = False):
