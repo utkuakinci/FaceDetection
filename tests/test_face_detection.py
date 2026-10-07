@@ -1,15 +1,13 @@
 """
 Tests for the Haar Cascade face detection logic used in main.py.
 
-main.py runs its detection loop at module level (it opens the webcam
-on import), so it can't be imported directly in a test environment.
-These tests instead exercise the same OpenCV Haar Cascade pipeline
-in isolation, on static images, so they run headlessly (no webcam
-needed) and deterministically.
+main.py reads frames from the webcam, so these tests instead exercise
+the same OpenCV Haar Cascade pipeline in isolation, on static images,
+so they run headlessly (no webcam needed) and deterministically.
 
 Run with:
-    pip install -r tests/requirements-test.txt
-    pytest tests/
+    pip install -r requirements-dev.txt
+    pytest
 """
 import os
 

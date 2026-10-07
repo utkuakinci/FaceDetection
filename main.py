@@ -4,7 +4,7 @@ from emotion_analyzer import EmotionAnalyzer
 def main():
     # Start the camera
     cap = cv2.VideoCapture(0)
-    # Install the Haar Cascade face classifier
+    # Load the Haar Cascade face classifier
     face_cascade = cv2.CascadeClassifier(
         cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
     )
@@ -17,18 +17,15 @@ def main():
         if not ret:
             break
 
-        # Gri tonlara çevir
+        # Convert to grayscale
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        # Yüzleri tespit et
+        # Detect faces
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 
-        # Yüzlerin etrafına dikdörtgen çiz
+        # Label each detected face
         for (x, y, w, h) in faces:
-            # Crop the detected face ROI (Region of Interest)
-            face_roi = frame[y:y+h, x:x+w]
-            
-            # Get emotion prediction
-            emotion, score = analyzer.analyze_face(face_roi)
+            # Get emotion prediction for the detected face
+            emotion, score = analyzer.analyze_face(frame, (x, y, w, h))
 
             # Draw bounding box and label
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
